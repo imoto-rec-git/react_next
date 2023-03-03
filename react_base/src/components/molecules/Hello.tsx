@@ -5,7 +5,8 @@ const Hello = (props) => {
   const { name, color, h1Style, children } = props;
   return (
     <h1 style={h1Style || { color: color }}>
-      {name}　{children}
+      {name}
+      {children}
     </h1>
   );
 };
