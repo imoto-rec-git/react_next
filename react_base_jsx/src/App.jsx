@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import { ArrayState } from './components/pages/ArrayState';
+import { ArrayPhotos } from './components/pages/ArrayPhotos';
+// import { ArrayState } from './components/pages/ArrayState';
 // import { ObjState } from './components/pages/ObjState';
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <div className="App">
       {/* <h1>Appコンポーネント</h1> */}
       {/* <ObjState /> */}
-      <ArrayState />
+      {/* <ArrayState /> */}
+      <ArrayPhotos />
     </div>
   );
 }
