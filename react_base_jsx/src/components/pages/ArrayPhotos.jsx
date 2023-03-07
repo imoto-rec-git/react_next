@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
+import classes from './ArrayPhotos.module.css';
 
-export const ArrayState = () => {
-  const [users, setUsers] = useState([]); //配列の場合は初期値に空の配列を入れる
-  // useEffectで第２引数の配列を空にすると、初回時のみ通過
-  // これを利用してAppコンポーネントのマウント時だけにaxiosで取得したデータを利用できるようにする
+export const ArrayPhotos = () => {
+  const { photo_list } = classes;
+  const [users, setUsers] = useState([]);
   useEffect(() => {
-    axios
-      .get('https://jsonplaceholder.typicode.com/users')
-      .then((response) => {
-        setUsers(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const newPhotos = [...users];
+    console.log(newPhotos);
+    for (let i = 20; i < 40; i++) {
+      const imgPath = `https://picsum.photos/id/${i}/400/600`;
+      newPhotos.push(imgPath);
+      setUsers(newPhotos);
+    }
   }, []);
   const [newUser, setNewUser] = useState('');
   const handleChange = (e) => {
@@ -54,12 +53,13 @@ export const ArrayState = () => {
   };
   return (
     <>
-      <h1>Array State</h1>
-      <ul>
+      <h1>Array Photos</h1>
+      <ul className={photo_list}>
         {users.map((user, index) => (
           <li key={index}>
-            {user.name}
-            <button onClick={() => deleteUser(user.id)}>Delete</button>
+            {/* {user.name} */}
+            {/* <button onClick={() => deleteUser(user.id)}>Delete</button> */}
+            <img src={user} alt="" />
           </li>
         ))}
       </ul>
