@@ -1,0 +1,19 @@
+dl {
+  max-width: 300px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: left;
+}
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+dt {
+  width: 20%;
+}
+dd {
+  width: 80%;
+}

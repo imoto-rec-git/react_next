@@ -1,21 +1,15 @@
 import React from 'react';
 import './App.css';
-import { CssModules } from './components/styles/CssModules';
-import { Emotion } from './components/styles/Emotion';
-import { InlineStyle } from './components/styles/InlineStyle';
-import { StyledComponents } from './components/styles/StyledComponents';
-import { StyledJsx } from './components/styles/StyledJsx';
+import { ArrayState } from './components/pages/ArrayState';
+// import { ObjState } from './components/pages/ObjState';
 
 function App() {
   console.log('Appコンポ最初');
   return (
     <div className="App">
-      {/* <Home /> */}
-      <InlineStyle />
-      <CssModules />
-      <StyledJsx />
-      <StyledComponents />
-      <Emotion />
+      {/* <h1>Appコンポーネント</h1> */}
+      {/* <ObjState /> */}
+      <ArrayState />
     </div>
   );
 }
