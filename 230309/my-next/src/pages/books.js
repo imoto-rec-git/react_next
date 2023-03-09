@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { fetchBooks } from "./api/books"
 
 export default function exchange() {
   const [bookList, setBookList] = useState([])
@@ -10,13 +11,8 @@ export default function exchange() {
   const handleSubmit = async (event) => {
     event.preventDefault()
     if (searchText === "") return
-    const serchWord = searchText
-    console.log("https://www.googleapis.com/books/v1/volumes?q=" + serchWord)
-    const test = await fetch(
-      "https://www.googleapis.com/books/v1/volumes?q=" + serchWord
-    )
-    const data = await test.json()
-    setBookList(data.items)
+    const books = await fetchBooks(searchText)
+    setBookList(books)
     setSearchText("")
   }
 
@@ -29,10 +25,10 @@ export default function exchange() {
       </form>
       {bookList ? (
         <>
-          {bookList.map((i, index) => {
+          {bookList.map((book) => {
             return (
               <>
-                <p key={index}>{i.volumeInfo.title}</p>
+                <p key={book}>{book.volumeInfo.title}</p>
               </>
             )
           })}
