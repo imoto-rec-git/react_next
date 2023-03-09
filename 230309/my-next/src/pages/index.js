@@ -1,10 +1,10 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
-import Comp1 from '@/components/Comp1';
-import Link from 'next/link';
+import Head from "next/head"
+import Image from "next/image"
+import { Inter } from "next/font/google"
+import Comp1 from "@/components/Comp1"
+import Link from "next/link"
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] })
 
 export default function Home() {
   return (
@@ -22,9 +22,9 @@ export default function Home() {
         <p>index.js</p>
         <Link href="/about">Go to About Page</Link>
         <Link href="/news">Go to News Page</Link>
-        <Link href="/exchange">為替レートへ</Link>
+        <Link href="/books">為替レートへ</Link>
         <Comp1 />
       </main>
     </>
-  );
+  )
 }

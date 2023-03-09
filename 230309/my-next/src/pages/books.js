@@ -1,28 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react"
 
 export default function exchange() {
-  const [bookList, setBookList] = useState([]);
-  const [searchText, setSearchText] = useState('');
-
-  useEffect(() => {
-    const fetchBook = async () => {
-      const responce = await fetch('api/books');
-      const data = await responce.json();
-      setBookList(data.books.items);
-    };
-    fetchBook();
-  }, []);
+  const [bookList, setBookList] = useState([])
+  const [searchText, setSearchText] = useState("")
 
   const handleSearch = (event) => {
-    setSearchText(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (searchText === '') return;
-    setSearchText('');
-    console.log(searchText);
-  };
+    setSearchText(event.target.value)
+  }
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    if (searchText === "") return
+    const serchWord = searchText
+    console.log("https://www.googleapis.com/books/v1/volumes?q=" + serchWord)
+    const test = await fetch(
+      "https://www.googleapis.com/books/v1/volumes?q=" + serchWord
+    )
+    const data = await test.json()
+    setBookList(data.items)
+    setSearchText("")
+  }
 
   return (
     <>
@@ -38,12 +34,12 @@ export default function exchange() {
               <>
                 <p key={index}>{i.volumeInfo.title}</p>
               </>
-            );
+            )
           })}
         </>
       ) : (
         <p>存在しません</p>
       )}
     </>
-  );
+  )
 }
