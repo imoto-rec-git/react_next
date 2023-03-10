@@ -2,7 +2,6 @@
 
 // createContentをimportする
 import React, { createContext } from 'react';
-import useState from 'react';
 
 // createContent()を定数に代入する
 export const CounterContext = createContext();
