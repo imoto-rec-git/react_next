@@ -1,0 +1,16 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+}
+.gnav > ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+}
+.gnav > a {
+  display: block;
+  padding: 0.5em;
+}
